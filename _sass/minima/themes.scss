@@ -1,0 +1,29 @@
+.dark-mode {
+  color: $text-color-dark;
+  background-color: $background-color-dark;
+
+  .page-link {
+    color: $text-color-dark;
+  }
+
+  .ascii-art {
+    color: $text-color-dark;
+  }
+
+  a {
+  	color: lightblue;
+  }
+}
+
+.light-mode {
+  color: $text-color;
+  background-color: $background-color;
+
+  .page-link {
+    color: $text-color;
+  }
+
+  .ascii-art {
+    color: $text-color;
+  }
+}

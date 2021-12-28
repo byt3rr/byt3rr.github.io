@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body class="light-mode">
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+  <script>
+    let darkmode = false;
+    const setMode = () => {
+    	document.body.setAttribute('class', darkmode ? 'dark-mode' : 'light-mode')
+	localStorage.setItem('mode', darkmode)
+	document.querySelector('#mode-button').innerHTML = darkmode ? "☀️" : "🌙"
+    }
+
+    const init = () => {
+    	const fromLS = JSON.parse(localStorage.getItem('mode'));
+	if (fromLS === null) {
+		localStorage.setItem('mode', darkmode)
+	} else {
+		darkmode = fromLS
+		setMode()
+	}
+	    document.querySelector('#mode-button').addEventListener('click', e => {
+		e.preventDefault();
+		darkmode = !darkmode;
+		setMode()
+	    })
+    }
+
+    init()
+
+
+  </script>
+
+
+</html>
